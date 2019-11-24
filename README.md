@@ -1,4 +1,4 @@
-# Vọc cùng Thành #14 - E2E Testing với CyPress
+# Vọc cùng Thành #15 - Chrome Extension
 
 ## Giới thiệu
 
