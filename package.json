@@ -1,19 +1,19 @@
 {
-  "name": "vct-16",
+  "name": "vct-15",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "watch:bg-scripts": "parcel watch src/background/index.js --out-dir build/background --out-file index.js --no-source-maps",
     "watch:content-scripts": "parcel watch src/content/index.js --out-dir build/content --out-file idnex.js --no-source-maps",
+    "watch:image-retriever": "parcel watch src/content/image-retriever.js --out-dir build/content --out-file image-retriever.js --no-source-maps",
     "watch:popup": "parcel watch src/popup/index.html --out-dir build/popup --public-url ./ --no-source-maps",
     "watch:custom-page": "parcel watch src/custom-page/index.html --out-dir build/custom-page --public-url ./ --no-source-maps",
-
     "build:bg-scripts": "parcel build src/background/index.js --out-dir build/background --out-file index.js --no-source-maps",
-    "build:content-scripts": "parcel build src/content/index.js --out-dir build/content --out-file idnex.js --no-source-maps",
+    "build:content-scripts": "parcel build src/content/index.js --out-dir build/content --out-file index.js --no-source-maps",
+    "build:image-retriever": "parcel build src/content/image-retriever.js --out-dir build/content --out-file image-retriever.js --no-source-maps",
     "build:popup": "parcel build src/popup/index.html --out-dir build/popup --public-url ./ --no-source-maps",
     "build:custom-page": "parcel build src/custom-page/index.html --out-dir build/custom-page --public-url ./ --no-source-maps",
-
     "build": "npm run build:bg-scripts && npm run build:content-scripts && npm run build:popup && npm run build:custom-page"
   },
   "keywords": [],
@@ -25,6 +25,7 @@
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-icons": "^3.8.0",
     "react-router-dom": "^5.1.2",
     "tachyons": "^4.11.1"
   }

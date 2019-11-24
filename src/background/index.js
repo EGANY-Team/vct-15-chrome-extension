@@ -5,42 +5,33 @@ import * as Actions from "../configs/actions";
 chrome.runtime.onMessage.addListener(({ type, payload }, sender, reply) => {
   switch (type) {
     case Actions.LIST_ALL_POSTS:
-      APIHandlers.listPosts()
-        .then(posts => {
-          reply({
-            error: null,
-            data: posts
-          });
-        })
-        .catch(error => {
-          reply({
-            error,
-            data: null
-          });
-        });
+      handleAsync(APIHandlers.listPosts, reply);
       break;
     case Actions.SAVE_IMAGES:
-      APIHandlers.saveImages(payload);
+      handleSync(APIHandlers.saveImages.bind(null, payload), reply);
       break;
     case Actions.LIST_IMAGES:
-      APIHandlers.listImages()
-        .then(images => {
-          reply({
-            error: null,
-            data: images
-          });
-        })
-        .catch(error => {
-          reply({
-            error,
-            data: null
-          });
-        });
+      handleAsync(APIHandlers.listImages, reply);
+      break;
+    case Actions.LOAD_IMAGE_RETRIEVER:
+      handleSync(EventHandlers.injectImageSetter, reply);
       break;
     default:
-    // do nothing
+      // do nothing
+      reply(false);
   }
 
   // return true to wait for async calls
   return true;
 });
+
+function handleAsync(handler, reply) {
+  handler()
+    .then(data => reply({ error: null, data }))
+    .catch(error => reply({ error, data: null }));
+}
+
+function handleSync(handler, reply) {
+  handler();
+  reply(true);
+}

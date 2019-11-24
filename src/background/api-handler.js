@@ -1,12 +1,10 @@
-export async function listPosts() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await res.json();
-
-  if (res.ok) {
-    return posts;
-  }
-
-  throw new Error(res.statusText || "Failed to fetch all posts");
+export function listPosts() {
+  return new Promise((resolve, reject) => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then(res => res.json())
+      .then(resolve)
+      .catch(reject);
+  });
 }
 
 export function saveImages(domain, images) {
@@ -18,4 +16,10 @@ export function saveImages(domain, images) {
   ) {
     chrome.storage.local.set({ [domain]: images });
   }
+}
+
+export function listImages() {
+  return new Promise(resolve => {
+    chrome.storage.local.get(resolve);
+  });
 }
