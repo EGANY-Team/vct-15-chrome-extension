@@ -7,7 +7,7 @@ export function listPosts() {
   });
 }
 
-export function saveImages(domain, images) {
+export function saveImages({ domain, images }) {
   if (
     typeof domain === "string" &&
     domain.length > 0 &&

@@ -14,7 +14,7 @@
     "build:image-retriever": "parcel build src/content/image-retriever.js --out-dir build/content --out-file image-retriever.js --no-source-maps",
     "build:popup": "parcel build src/popup/index.html --out-dir build/popup --public-url ./ --no-source-maps",
     "build:custom-page": "parcel build src/custom-page/index.html --out-dir build/custom-page --public-url ./ --no-source-maps",
-    "build": "npm run build:bg-scripts && npm run build:content-scripts && npm run build:popup && npm run build:custom-page"
+    "build": "npm run build:bg-scripts && npm run build:content-scripts && npm run build:image-retriever && npm run build:popup && npm run build:custom-page"
   },
   "keywords": [],
   "author": "",

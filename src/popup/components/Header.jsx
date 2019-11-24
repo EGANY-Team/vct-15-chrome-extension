@@ -15,7 +15,7 @@ const Header = () => {
         </a>
         <a
           className="link dim white"
-          href="https://devnow.vn/?p=3305"
+          href="https://github.com/EGANY-Team/vct-15-chrome-extension"
           target="_blank"
           rel="noreferrer noopener"
         >

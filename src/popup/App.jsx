@@ -20,17 +20,20 @@ const App = () => {
   }
 
   useEffect(() => {
-    chrome.tabs.query({ active: true }, tabs => {
-      const [tab] = tabs;
-      if (tab) {
-        chrome.tabs.sendMessage(
-          tab.id,
-          { type: HAS_IMAGES },
-          null,
-          setHasImages
-        );
+    chrome.tabs.query(
+      { active: true, currentWindow: true, url: "<all_urls>" },
+      tabs => {
+        const [tab] = tabs;
+        if (tab && /^http/.test(tab.url)) {
+          chrome.tabs.sendMessage(
+            tab.id,
+            { type: HAS_IMAGES },
+            null,
+            setHasImages
+          );
+        }
       }
-    });
+    );
   }, []);
 
   return (

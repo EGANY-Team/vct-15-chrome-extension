@@ -11,7 +11,8 @@ chrome.runtime.onMessage.addListener(({ type, payload }, sender, reply) => {
       });
       break;
     default:
-    // do nothing
+      // do nothing
+      reply(false);
   }
 });
 
