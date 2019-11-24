@@ -2,7 +2,7 @@
 
 ## Giới thiệu
 
-Đây là demo cho bài viết cùng tên tại [DevNow]post
+Đây là demo cho bài viết cùng tên tại [DevNow][post]
 
 ## Yêu cầu
 
