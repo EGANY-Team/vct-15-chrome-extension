@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "VCT-16: Chrome Extension",
+  "version": "1.0.0",
+  "description": "Chrome extension demo cho bài viết cùng tên tại DevNow.vn",
+  "icons": {
+    "16": "egany-logo.png"
+  },
+  "browser_action": {
+    "default_popup": "popup/index.html",
+    "default_icon": "egany-logo.png",
+    "default_title": "VCT-16: Chrome Extension"
+  },
+  "background": {
+    "scripts": ["background/index.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/index.js"]
+    }
+  ],
+  "permissions": ["activeTab", "storage"]
+}
